@@ -1,0 +1,17 @@
+<div class="chat-container">
+  <div class="chat-box">
+    <div *ngFor="let msg of messages"
+         [ngClass]="msg.sender === 'user' ? 'user' : 'ai'">
+      {{ msg.content }}
+    </div>
+  </div>
+
+  <div class="input-box">
+    <input
+      [(ngModel)]="input"
+      placeholder="Nhập câu hỏi cho trợ lý sinh viên..."
+      (keyup.enter)="send()"
+    />
+    <button (click)="send()">Gửi</button>
+  </div>
+</div>
